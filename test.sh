@@ -34,3 +34,10 @@ echo "../gitik/wtf.sh" && ../gitik/wtf.sh
 echo ""
 echo "../gitik/incest.sh" && ../gitik/incest.sh
 echo "../gitik/wtf.sh" && ../gitik/wtf.sh
+
+#
+echo ""
+echo "../gitik/breed.sh" && ../gitik/breed.sh
+echo "../gitik/breed.sh dev" && ../gitik/breed.sh dev
+echo "../gitik/breed.sh dev" && ../gitik/breed.sh dev
+echo "../gitik/wtf.sh" && ../gitik/wtf.sh

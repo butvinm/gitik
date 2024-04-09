@@ -2,7 +2,7 @@
 gitik_dir=$(dirname "$(readlink -f "$0")")
 
 source "$gitik_dir/_state.sh"
-source "$gitik_dir/_files.sh"
+source "$gitik_dir/_branch.sh"
 
 if [ -d .gitik ]; then
     echo "Local repository has already been initialized."
@@ -22,8 +22,8 @@ else
     branch="master"
     commit="0"
 
-    mkdir ".gitik/$branch"
-    save_changes $branch $commit
+    init_branch $branch
+    commit_changes $branch $commit
 
     save_state $branch $commit
 
