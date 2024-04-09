@@ -1,3 +1,5 @@
+#!/bin/bash
+
 if [ -d .gitik ]; then
     echo "Local repository has already been initialized."
 else
@@ -13,11 +15,13 @@ else
     mkdir .gitik
     echo "$name <$email> $address" >> .gitik/user
 
-    mkdir .gitik/master
-    rsync -av --quiet --progress . .gitik/master/0 --exclude .gitik
+    branch="master"
+    commit="0"
 
-    echo "master" >> .gitik/state
-    echo "0" >> .gitik/state
+    mkdir ".gitik/$branch"
+    rsync -av --quiet --progress . ".gitik/$branch/$commit" --exclude .gitik
+
+    save_state $branch $commit
 
     echo "Repository has been initialized succesfully!"
 fi
