@@ -11,9 +11,16 @@ echo -e "On branch ${BLUE}$branch${NC}"
 echo -e "Latest commit is ${BLUE}$commit${NC}"
 echo -e ""
 
-echo -e "Changes:"
-diff -r . .gitik/$branch/$commit --exclude=.gitik --brief \
-| sort -r \
-| sed -E -e "s/^Only in \.:\s*(.*)\$/    ${GREEN}new file:\t\1${NC}/" \
-         -e "s/^Only in \.gitik.+:\s*(.*)\$/    ${RED}deleted:\t\1${NC}/" \
-         -e "s/^Files (.*) and .* differ$/    ${YELLOW}modified:\t\1${NC}/"
+changes=$(diff -r . ".gitik/$branch/$commit" --exclude=.gitik --brief \
+    | sort -r \
+    | sed -E -e "s/^Only in \.:\s*(.*)\$/    ${GREEN}new file:\t\1${NC}/" \
+             -e "s/^Only in \.gitik.+:\s*(.*)\$/    ${RED}deleted:\t\1${NC}/" \
+             -e "s/^Files (.*) and .* differ$/    ${YELLOW}modified:\t\1${NC}/"
+)
+
+if [ -z "$changes" ]; then
+    echo "No changes"
+else
+    echo "Changes:"
+    echo "$changes"
+fi

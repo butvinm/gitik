@@ -1,4 +1,8 @@
 #!/bin/bash
+gitik_dir=$(dirname "$(readlink -f "$0")")
+
+source "$gitik_dir/_state.sh"
+source "$gitik_dir/_files.sh"
 
 if [ -d .gitik ]; then
     echo "Local repository has already been initialized."
@@ -19,7 +23,7 @@ else
     commit="0"
 
     mkdir ".gitik/$branch"
-    rsync -av --quiet --progress . ".gitik/$branch/$commit" --exclude .gitik
+    save_changes $branch $commit
 
     save_state $branch $commit
 
