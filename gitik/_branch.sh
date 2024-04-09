@@ -10,6 +10,11 @@ init_branch() {
     mkdir ".gitik/$1"
 }
 
+ls_branches () {
+    ls -d1 ".gitik"/*/ \
+    | sed -E "s/^\.gitik\/(.*)\/\$/\1/"
+}
+
 # $1 - source branch
 # $2 - dest branch
 clone_commits() {
