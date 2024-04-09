@@ -8,7 +8,7 @@ branch=$(get_working_branch)
 commit=$(get_head_commit)
 
 echo -e "On branch ${BLUE}$branch${NC}"
-echo -e "Latest commit is ${BLUE}$commit${NC}"
+echo -e "HEAD is ${BLUE}$commit${NC}"
 echo -e ""
 
 changes=$(diff -r . ".gitik/$branch/$commit" --exclude=.gitik --brief \

@@ -45,3 +45,19 @@ echo "../gitik/wtf.sh" && ../gitik/wtf.sh
 #
 echo ""
 echo "../gitik/spy.sh" && ../gitik/spy.sh
+
+#
+echo ""
+echo "../gitik/metro.sh" && ../gitik/metro.sh
+
+echo ""
+echo "../gitik/metro.sh master/0" && ../gitik/metro.sh master/0
+echo "../gitik/wtf.sh" && ../gitik/wtf.sh
+
+echo ""
+echo "../gitik/metro.sh 1" && ../gitik/metro.sh 1
+echo "../gitik/wtf.sh" && ../gitik/wtf.sh
+
+echo ""
+echo "../gitik/metro.sh dev" && ../gitik/metro.sh dev
+echo "../gitik/wtf.sh" && ../gitik/wtf.sh

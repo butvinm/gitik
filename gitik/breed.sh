@@ -13,13 +13,13 @@ fi
 if is_branch_exists $1; then
     echo "Branch already exists"
     exit 1
-else
-    init_branch $1
-
-    branch=$(get_working_branch)
-    commit=$(get_head_commit)
-
-    clone_commits $branch $1
-
-    save_state $1 $commit
 fi
+
+init_branch $1
+
+branch=$(get_working_branch)
+commit=$(get_head_commit)
+
+clone_commits $branch $1
+
+save_state $1 $commit
