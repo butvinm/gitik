@@ -10,7 +10,7 @@ echo "world" > uwu/world.txt
 echo "nya" > uwu/nya.txt
 
 #
-echo "../gitik/help.sh" && ../gitik/help.sh
+echo "../gitik/skill_issue.sh" && ../gitik/skill_issue.sh
 
 #
 echo ""
