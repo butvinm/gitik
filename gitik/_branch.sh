@@ -34,18 +34,21 @@ get_latest_commit() {
 # $1 - source branch
 # $2 - dest branch
 clone_commits() {
-    rsync -av --quiet ".gitik/$1/" ".gitik/$2" --exclude .gitik $(get_rsync_ignore)
+    if [[ -f $CHS ]]; then
+        rsync -av --quiet ".gitik/$1/" ".gitik/$2" --exclude .gitik $(get_rsync_ignore)
+    else
+        rsync -av --quiet ".gitik/$1/" ".gitik/$2" --exclude .gitik $(get_rsync_ignore)
+    fi
 # $1 - working branch
 }
 
 # $2 - commit number
 commit_changes() {
     if [[ -f $CHS ]]; then
-        exclude_from="--exclude-from $CHS"
+        rsync -av --quiet . ".gitik/$1/$2" --exclude .gitik $(get_rsync_ignore)
     else
-        exclude_from=""
+        rsync -av --quiet . ".gitik/$1/$2" --exclude .gitik
     fi
-    rsync -av --quiet . ".gitik/$1/$2" --exclude .gitik $(get_rsync_ignore)
 }
 
 
@@ -53,6 +56,11 @@ commit_changes() {
 # $2 - commit number
 restore_commit() {
     shopt -s extglob
-    ls -A1 | grep -xv ".gitik" | grep -xv $(get_grep_ignore) | xargs rm -rf
-    rsync -av --quiet ".gitik/$1/$2/" . --exclude .gitik $(get_rsync_ignore)
+    if [[ -f CHS ]]; then
+        ls -A1 | grep -xv ".gitik" | grep -xv $(get_grep_ignore) | xargs rm -rf
+        rsync -av --quiet ".gitik/$1/$2/" . --exclude .gitik $(get_rsync_ignore)
+    else
+        ls -A1 | grep -xv ".gitik" | xargs rm -rf
+        rsync -av --quiet ".gitik/$1/$2/" . --exclude .gitik
+    fi
 }
