@@ -1,10 +1,12 @@
 #!/bin/bash
 
 mkdir -p test_tmp
-rm -rf test_tmp/* test_tmp/.gitik
+rm -rf test_tmp/* test_tmp/.gitik test_tmp/.чс
 cd test_tmp
 
 echo "Hello" > hello.txt
+echo "baka" > baka.txt
+echo "baka.txt" > .чс
 mkdir uwu
 echo "world" > uwu/world.txt
 echo "nya" > uwu/nya.txt

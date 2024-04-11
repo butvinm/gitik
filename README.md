@@ -17,5 +17,5 @@ gitik/skill_issue.sh
 - [x] breed
 - [x] spy
 - [x] metro
+- [x] .чс
 - [ ] merge dev in2 master immediately ASAP pls
-- [ ] merge fuck
