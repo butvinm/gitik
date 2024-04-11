@@ -12,7 +12,7 @@ if [ $# -ne 1 ]; then
 fi
 
 
-if [[ $1 =~ ^([[:alnum:]]+)/([[:alnum:]]+)$ ]]; then
+if [[ $1 =~ ^([[:alnum:]_-]+)/([[:alnum:]]+)$ ]]; then
     branch="${BASH_REMATCH[1]}"
     commit="${BASH_REMATCH[2]}"
     if ! is_commit_exists $branch $commit; then

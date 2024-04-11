@@ -63,3 +63,14 @@ echo "../gitik/wtf.sh" && ../gitik/wtf.sh
 echo ""
 echo "../gitik/metro.sh dev" && ../gitik/metro.sh dev
 echo "../gitik/wtf.sh" && ../gitik/wtf.sh
+
+#
+echo "test" > "test.txt"
+echo "../gitik/wtf.sh" && ../gitik/wtf.sh
+
+echo ""
+echo "../gitik/pls.sh" && ../gitik/pls.sh
+
+echo ""
+echo "../gitik/pls.sh merge master/0 in2 master asap" && ../gitik/pls.sh merge master in2 master asap
+echo "../gitik/wtf.sh" && ../gitik/wtf.sh
