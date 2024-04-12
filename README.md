@@ -1,6 +1,6 @@
 # Gitik
 
-Git's little sibling. In bash. Every family has its black sheep.
+Git's little sibling. In bash.
 
 
 ## Usage
